@@ -16,6 +16,7 @@
             <!-- Cargamos el modelo GLB des de el nuevo enlace -->
             <a-asset-item id="modelo" src="https://cdn.glitch.global/dc44eb7e-d694-4af1-b1ae-dbc770207bf0/colorful_frog__free.glb?v=1697047327665"></a-asset-item>
             <audio id="sound" src="sonido.mp3" preload="auto"></audio>
+	    <audio id="sound2" src="fondo.mp3" preload="auto"></audio>
         </a-assets>
       
             <a-marker
@@ -37,12 +38,26 @@
         </a-entity>
       </a-marker>
 	<a-entity sound="src: #sound" autoplay="false"></a-entity>
+	<a-entity sound="src: #sound2" autoplay="false"></a-entity>
         <a-entity camera></a-entity>
     </a-scene>
     <script>
 			AFRAME.registerComponent('soundhandler', {
 				tick: function () {
 					   var entity = document.querySelector('[sound]');
+					 if (document.querySelector('a-marker').object3D.visible == true) {
+						entity.components.sound.playSound();
+					} else {
+						entity.components.sound.pauseSound();
+					}
+
+				 }
+			});
+      </script>
+        <script>
+			AFRAME.registerComponent('soundhandler', {
+				tick: function () {
+					   var entity = document.querySelector('[sound2]');
 					 if (document.querySelector('a-marker').object3D.visible == true) {
 						entity.components.sound.playSound();
 					} else {
