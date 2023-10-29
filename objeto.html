@@ -15,17 +15,20 @@
         <a-assets>
             <!-- Cargamos el modelo GLB des de el nuevo enlace -->
             <a-asset-item id="modelo" src="https://cdn.glitch.global/dc44eb7e-d694-4af1-b1ae-dbc770207bf0/colorful_frog__free.glb?v=1697047327665"></a-asset-item>
-            <audio id="sound" src="junto.mp3" preload="auto"></audio>
+	    <a-asset-item id="modelo2" src="https://cdn.glitch.global/dc44eb7e-d694-4af1-b1ae-dbc770207bf0/escarabajo_uv.glb?v=1698600983399"></a-asset-item>
+            <audio id="sound" src="sonido.mp3" preload="auto"></audio>
+	    <audio id="sound2" src="junto.mp3" preload="auto"></audio>
 	    
         </a-assets>
       
-            <a-marker
-        preset="hiro"
+        <a-marker
+  	id= "sapo"
+        type="barcode"
+	value= "6"
         raycaster="objects: .clickable"
         emitevents="true"
         cursor="fuse: false; rayOrigin: mouse;"
-        id="markerA"
-      >
+        >
         <a-entity
           id="bowser-model"
           gltf-model="#modelo"
@@ -37,22 +40,53 @@
         >
         </a-entity>
       </a-marker>
-	<a-entity sound="src: #sound" autoplay="false"></a-entity>
+
+  	<a-marker
+  	id= "escarabajo"
+        type="barcode"
+	value= "7"
+        raycaster="objects: .clickable"
+        emitevents="true"
+        cursor="fuse: false; rayOrigin: mouse;"
+        >
+        <a-entity
+          id="bowser-model2"
+          gltf-model="#modelo2"
+          position="0 1 1"
+          scale="0.5 0.5 0.5"
+          class="clickable"
+          gesture-handler
+          soundhandler
+        >
+        </a-entity>
+      </a-marker>
+	    
+	<a-entity id="audio1" sound="src: #sound" autoplay="false"></a-entity>
+	<a-entity id="audio2" sound="src: #sound2" autoplay="false"></a-entity>
         <a-entity camera></a-entity>
     </a-scene>
     <script>
-			AFRAME.registerComponent('soundhandler', {
-				tick: function () {
-					   var entity = document.querySelector('[sound]');
-					 if (document.querySelector('a-marker').object3D.visible == true) {
-						entity.components.sound.playSound();
-					} else {
-						entity.components.sound.pauseSound();
-					}
-
-				 }
-			});
-      </script>
+	AFRAME.registerComponent('soundhandler', {
+	tick: function () {
+	var entity = document.querySelector('#audio1');
+	var entity2 = document.querySelector('#audio2');
+	
+	
+	if (document.querySelector('#sapo').object3D.visible == true) {
+	entity2.components.sound.pauseSound();
+	entity.components.sound.playSound();
+	
+	} else if (document.querySelector('#escarabajo').object3D.visible == true) {
+	 entity.components.sound.pauseSound();
+	 entity2.components.sound.playSound();
+	
+	}else{
+	entity.components.sound.pauseSound();
+	entity2.components.sound.pauseSound();
+	 }
+	}
+	});
+</script>
 </body>
 
 </html>
