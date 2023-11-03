@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+|<!DOCTYPE html>
 <html>
 
 <head>
@@ -28,8 +28,8 @@
       
         <a-marker
             id= "gameboy"
-            type="pattern"
-            url= "pattern-gameboy.patt"
+            type="barcode"
+            value= "9"
             raycaster="objects: .clickable"
             emitevents="true"
             cursor="fuse: false; rayOrigin: mouse;"
@@ -129,7 +129,7 @@
           <a-entity camera></a-entity>
     </a-scene>
     <script>
-    AFRAME.registerComponent('soundhandler', {
+AFRAME.registerComponent('soundhandler', {
       tick: function () {
       var entity = document.querySelector('#audio1');
       var entity2 = document.querySelector('#audio2');
@@ -145,14 +145,22 @@
         entity5.components.sound.pauseSound();
         entity.components.sound.playSound();
 
-      } else if (document.querySelector('#steam').object3D.visible == true) {
+      } if (document.querySelector('#steam').object3D.visible == true) {
          entity.components.sound.pauseSound();
          entity3.components.sound.pauseSound();
          entity4.components.sound.pauseSound();
          entity5.components.sound.pauseSound();
          entity2.components.sound.playSound();
       
-      } 
+      } if (document.querySelector('#xbox').object3D.visible == true) {
+        entity.components.sound.pauseSound();
+        entity2.components.sound.pauseSound();
+        entity4.components.sound.pauseSound();
+        entity5.components.sound.pauseSound();
+        entity3.components.sound.playSound();
+
+      }
+
 
       else{
         entity.components.sound.pauseSound();
