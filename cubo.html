@@ -36,7 +36,7 @@
           >
           <a-entity
             gltf-model="#modelo"
-            position="0 1 1"
+            position="1 1 1"
             scale="0.25 0.25 0.25"
             class="clickable"
             gesture-handler
@@ -55,7 +55,7 @@
          >
         <a-entity
           gltf-model="#modelo2"
-          position="0 1 1"
+          position="1 1 1"
           scale="0.5 0.5 0.5"
           class="clickable"
           gesture-handler
@@ -74,8 +74,8 @@
           >
         <a-entity
           gltf-model="#modelo3"
-          position="0 1 1"
-          scale="0.5 0.5 0.5"
+          position="1 1 1"
+          scale="0.25 0.25 0.25"
           class="clickable"
           gesture-handler
           soundhandler
@@ -85,8 +85,8 @@
       
       <a-marker
   	id= "play"
-        type="pattern"
-	url= "pattern-play.patt"
+        type="barcode"
+	value= "5"
         raycaster="objects: .clickable"
         emitevents="true"
         cursor="fuse: false; rayOrigin: mouse;"
@@ -104,8 +104,8 @@
       
       <a-marker
   	id= "gamecube"
-        type="pattern"
-	url= "pattern1.patt"
+        type="barcode"
+	value= "4"
         raycaster="objects: .clickable"
         emitevents="true"
         cursor="fuse: false; rayOrigin: mouse;"
@@ -161,7 +161,24 @@ AFRAME.registerComponent('soundhandler', {
 
       }
 
+      if (document.querySelector('#play').object3D.visible == true) {
+        entity.components.sound.pauseSound();
+        entity2.components.sound.pauseSound();
+        entity3.components.sound.pauseSound();
+        entity5.components.sound.pauseSound();
+        entity4.components.sound.playSound();
 
+      }
+
+      if (document.querySelector('#gamecube').object3D.visible == true) {
+        entity.components.sound.pauseSound();
+        entity2.components.sound.pauseSound();
+        entity4.components.sound.pauseSound();
+        entity3.components.sound.pauseSound();
+        entity5.components.sound.playSound();
+
+      }
+	      
       else{
         entity.components.sound.pauseSound();
         entity2.components.sound.pauseSound();
