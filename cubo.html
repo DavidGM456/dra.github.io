@@ -13,11 +13,11 @@
 <body style="margin: 0px; overflow: hidden;">
     <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;" gesture-detector>
         <a-assets>
-            <a-asset-item id="gameboy" src="https://cdn.glitch.global/11da06eb-3feb-4af1-bd25-5f7c1882aac7/gameboy.glb?v=1698863322780"></a-asset-item>
-	    <a-asset-item id="steam" src="https://cdn.glitch.global/11da06eb-3feb-4af1-bd25-5f7c1882aac7/steam_deck_console.glb?v=1698863332145"></a-asset-item>
-            <a-asset-item id="xbox" src="https://cdn.glitch.global/11da06eb-3feb-4af1-bd25-5f7c1882aac7/xbox_series_x_console.glb?v=1698863339310"></a-asset-item>
-            <a-asset-item id="play" src="https://cdn.glitch.global/11da06eb-3feb-4af1-bd25-5f7c1882aac7/playstation_2.glb?v=1698863365985"></a-asset-item>
-            <a-asset-item id="gamecube" src="https://cdn.glitch.global/11da06eb-3feb-4af1-bd25-5f7c1882aac7/nintendo_gamecube.glb?v=1698863370096"></a-asset-item>
+            <a-asset-item id="modelo" src="https://cdn.glitch.global/11da06eb-3feb-4af1-bd25-5f7c1882aac7/gameboy.glb?v=1698863322780"></a-asset-item>
+	    <a-asset-item id="modelo2" src="https://cdn.glitch.global/11da06eb-3feb-4af1-bd25-5f7c1882aac7/steam_deck_console.glb?v=1698863332145"></a-asset-item>
+            <a-asset-item id="modelo3" src="https://cdn.glitch.global/11da06eb-3feb-4af1-bd25-5f7c1882aac7/xbox_series_x_console.glb?v=1698863339310"></a-asset-item>
+            <a-asset-item id="modelo4" src="https://cdn.glitch.global/11da06eb-3feb-4af1-bd25-5f7c1882aac7/playstation_2.glb?v=1698863365985"></a-asset-item>
+            <a-asset-item id="modelo5" src="https://cdn.glitch.global/11da06eb-3feb-4af1-bd25-5f7c1882aac7/nintendo_gamecube.glb?v=1698863370096"></a-asset-item>
           
             <audio id="song" src="gameboy.mp3" preload="auto"></audio>
 	    <audio id="song2" src="steam.mp3" preload="auto"></audio>
@@ -27,7 +27,7 @@
         </a-assets>
       
         <a-marker
-            id= "gamebo"
+            id= "gameboy"
             type="pattern"
             url= "pattern-gameboy.patt"
             raycaster="objects: .clickable"
@@ -35,7 +35,7 @@
             cursor="fuse: false; rayOrigin: mouse;"
           >
           <a-entity
-            gltf-model="#gameboy"
+            gltf-model="#modelo"
             position="0 1 1"
             scale="0.5 0.5 0.5"
             class="clickable"
@@ -46,7 +46,7 @@
         </a-marker>
 
         <a-marker
-            id= "stea"
+            id= "steam"
             type="pattern"
             url= "pattern-steam.patt"
             raycaster="objects: .clickable"
@@ -54,7 +54,7 @@
             cursor="fuse: false; rayOrigin: mouse;"
          >
         <a-entity
-          gltf-model="#steam"
+          gltf-model="#modelo2"
           position="0 1 1"
           scale="0.5 0.5 0.5"
           class="clickable"
@@ -65,7 +65,7 @@
         </a-marker>
       
         <a-marker
-          id= "xbo"
+          id= "xbox"
           type="pattern"
           url= "pattern-xbox.patt"
           raycaster="objects: .clickable"
@@ -73,7 +73,7 @@
           cursor="fuse: false; rayOrigin: mouse;"
           >
         <a-entity
-          gltf-model="#xbox"
+          gltf-model="#modelo3"
           position="0 1 1"
           scale="0.5 0.5 0.5"
           class="clickable"
@@ -84,7 +84,7 @@
       </a-marker>
       
       <a-marker
-  	id= "pla"
+  	id= "play"
         type="pattern"
 	url= "pattern-play.patt"
         raycaster="objects: .clickable"
@@ -92,7 +92,7 @@
         cursor="fuse: false; rayOrigin: mouse;"
         >
         <a-entity
-          gltf-model="#play"
+          gltf-model="#modelo4"
           position="0 1 1"
           scale="0.5 0.5 0.5"
           class="clickable"
@@ -103,7 +103,7 @@
       </a-marker>
       
       <a-marker
-  	id= "gamecub"
+  	id= "gamecube"
         type="pattern"
 	url= "pattern-gamecube.patt"
         raycaster="objects: .clickable"
@@ -111,7 +111,7 @@
         cursor="fuse: false; rayOrigin: mouse;"
         >
         <a-entity
-          gltf-model="#gamecube"
+          gltf-model="#modelo5"
           position="0 1 1"
           scale="0.5 0.5 0.5"
           class="clickable"
@@ -121,14 +121,14 @@
         </a-entity>
       </a-marker>
 	    
-    <a-entity id="audio1" sound="src: #sound" autoplay="false"></a-entity>
-    <a-entity id="audio2" sound="src: #sound2" autoplay="false"></a-entity>
-    <a-entity id="audio3" sound="src: #sound3" autoplay="false"></a-entity>
-    <a-entity id="audio4" sound="src: #sound4" autoplay="false"></a-entity>
-    <a-entity id="audio5" sound="src: #sound5" autoplay="false"></a-entity>
+    <a-entity id="audio1" sound="src: #song" autoplay="false"></a-entity>
+    <a-entity id="audio2" sound="src: #song2" autoplay="false"></a-entity>
+    <a-entity id="audio3" sound="src: #song3" autoplay="false"></a-entity>
+    <a-entity id="audio4" sound="src: #song4" autoplay="false"></a-entity>
+    <a-entity id="audio5" sound="src: #song5" autoplay="false"></a-entity>
           <a-entity camera></a-entity>
-      </a-scene>
-      <script>
+    </a-scene>
+    <script>
     AFRAME.registerComponent('soundhandler', {
       tick: function () {
       var entity = document.querySelector('#audio1');
@@ -138,21 +138,21 @@
       var entity5 = document.querySelector('#audio5');
         
 
-      if (document.querySelector('#gamebo').object3D.visible == true) {
+      if (document.querySelector('#gameboy').object3D.visible == true) {
         entity2.components.sound.pauseSound();
         entity3.components.sound.pauseSound();
         entity4.components.sound.pauseSound();
         entity5.components.sound.pauseSound();
         entity.components.sound.playSound();
 
-      } if (document.querySelector('#stea').object3D.visible == true) {
+      } if (document.querySelector('#steam').object3D.visible == true) {
          entity.components.sound.pauseSound();
          entity3.components.sound.pauseSound();
          entity4.components.sound.pauseSound();
          entity5.components.sound.pauseSound();
          entity2.components.sound.playSound();
       
-        if (document.querySelector('#xbo').object3D.visible == true) {
+        if (document.querySelector('#xbox').object3D.visible == true) {
         entity.components.sound.pauseSound();
         entity2.components.sound.pauseSound();
         entity4.components.sound.pauseSound();
@@ -161,7 +161,7 @@
 
       }
         
-        if (document.querySelector('#pla').object3D.visible == true) {
+        if (document.querySelector('#play').object3D.visible == true) {
          entity.components.sound.pauseSound();
          entity2.components.sound.pauseSound();
          entity3.components.sound.pauseSound();
@@ -170,7 +170,7 @@
 
       }
         
-        if (document.querySelector('#gamecub').object3D.visible == true) {
+        if (document.querySelector('#gamecube').object3D.visible == true) {
          entity.components.sound.pauseSound();
          entity2.components.sound.pauseSound();
          entity3.components.sound.pauseSound();
